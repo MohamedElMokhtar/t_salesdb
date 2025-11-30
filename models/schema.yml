@@ -3,14 +3,21 @@ version: 2
 sources:
   - name: public
     tables:
-      - name: ahs_factures
-      - name: csm_factures
+      - name: db1_orders
+      - name: db2_orders
+      - name: db1_customers
+      - name: db2_customers
 
 models:
-  - name: t_customers
+  - name: t_orders
     description: "consolidated orders"
     config:
       schema: merged
-      alias: fact_factures
+      alias: fact_orders
 
+  - name: t_customers
+    description: "consolidated customers"
+    config:
+      schema: merged
+      alias: fact_customers
 

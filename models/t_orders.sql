@@ -8,18 +8,18 @@
 with combined as (
 
     select *, 'DB1' as src
-    from {{ source('public', 'db1_customers') }}
+    from {{ source('public', 'db1_orders') }}
 
     union all
 
     select *, 'DB2' as src
-    from {{ source('public', 'db2_customers') }}
+    from {{ source('public', 'db2_orders') }}
 
 )
 
 select
     *,
-    src || '_' || customerid as src_id
+    src || '_' || orderid as src_id
 from combined
 {% if is_incremental() %}
   where _ab_cdc_updated_at >
