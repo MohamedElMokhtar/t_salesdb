@@ -1,7 +1,7 @@
 {{
     config(
         materialized='incremental',
-        unique_key=['id', 'src']
+        unique_key='src_id'
     )
 }}
 
@@ -17,7 +17,9 @@ with combined as (
 
 )
 
-select *
+select
+    *,
+    src || '_' || id as src_id
 from combined
 {% if is_incremental() %}
   where _ab_cdc_updated_at >
