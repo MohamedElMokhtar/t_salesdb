@@ -7,13 +7,13 @@
 
 with combined as (
 
-    select *, 'DB1' as src
-    from {{ source('public', 'db1_customers') }}
+    select *, 'AHS' as src
+    from {{ source('public', 'ahs_factures') }}
 
     union all
 
-    select *, 'DB2' as src
-    from {{ source('public', 'db2_customers') }}
+    select *, 'CSM' as src
+    from {{ source('public', 'csm_factures') }}
 
 )
 
