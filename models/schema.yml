@@ -12,12 +12,12 @@ models:
   - name: t_orders
     description: "consolidated orders"
     config:
-      schema: public
+      schema: merged
       alias: fact_orders
 
   - name: t_customers
     description: "consolidated customers"
     config:
-      schema: public
+      schema: merged
       alias: fact_customers
 
