@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: public
+    tables:
+      - name: db1_orders
+      - name: db2_orders
+      - name: db1_customers
+      - name: db2_customers
+
+models:
+  - name: t_orders
+    description: "consolidated orders"
+    config:
+      schema: public
+      alias: fact_orders
+
+  - name: t_customers
+    description: "consolidated customers"
+    config:
+      schema: public
+      alias: fact_customers
+
